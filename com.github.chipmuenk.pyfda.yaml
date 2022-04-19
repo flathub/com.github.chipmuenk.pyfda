@@ -37,8 +37,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz
-        sha256: 7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954
+        url: https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz
+        sha256: 18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea
         x-checker-data:
           type: pypi
           name: pyparsing
@@ -55,7 +55,7 @@ modules:
         x-checker-data:
           type: pypi
           name: numpy
-
+          
   - name: python-certifi # needed by matplotlib
     buildsystem: simple
     build-commands:
@@ -67,7 +67,7 @@ modules:
         x-checker-data:
           type: pypi
           name: certifi
-
+          
   - name: qhull # needed by matplotlib
     buildsystem: cmake-ninja
     sources:
@@ -86,7 +86,7 @@ modules:
         x-checker-data:
           type: pypi
           name: setuptools-scm
-
+          
   - name: python-flit-core
     buildsystem: simple
     build-commands:
@@ -98,8 +98,9 @@ modules:
         x-checker-data:
           type: pypi
           name: flit_core
-
+          
   - python3-tomli.json # needed by python-setuptools-scm-git-archive     
+          
   - name: python-setuptools-scm-git-archive # needed by matplotlib
     buildsystem: simple
     build-commands:
@@ -111,7 +112,7 @@ modules:
         x-checker-data:
           type: pypi
           name: setuptools-scm-git-archive
-
+          
   - name: python-matplotlib
     buildsystem: simple
     build-options:
@@ -135,8 +136,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/c5/7e/6cc5acd93752ee52d2f0423046072a2ce3ae16dfcd44373b9fe2a0222204/cppy-1.2.1.tar.gz
-        sha256: 83b43bf17b1085ac15c5debdb42154f138b928234b21447358981f69d0d6fe1b
+        url: https://files.pythonhosted.org/packages/e0/94/3cca7fccecf9b63219f3bf8f08af719f6d3ab06c4acdcc9372a15a12b593/cppy-1.2.0.tar.gz
+        sha256: 95e8862e4f826c3f2a6b7b658333b162f80cbe9f943aa0d0a7a6b2ef850aeffc
         x-checker-data:
           type: pypi
           name: cppy
@@ -147,8 +148,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/2b/65/9eb6841880f6214f70e891a97ac945137bb6b2dd65ac35da219a752255fe/kiwisolver-1.4.2.tar.gz
-        sha256: 7f606d91b8a8816be476513a77fd30abe66227039bd6f8b406c348cb0247dcc9
+        url: https://files.pythonhosted.org/packages/c7/c0/5eef3c2fb687b71433f61638e317d468c3276d210bd462cfa0c3039ddf26/kiwisolver-1.4.1.tar.gz
+        sha256: 91bfcd2a14bea6f93c86876c4abccb53dc3f0bcad55e3a0af0b3e57ced6eef11
         x-checker-data:
           type: pypi
           name: kiwisolver
@@ -225,7 +226,7 @@ modules:
         x-checker-data:
           type: pypi
           name: cycler
-
+          
   - name: python-dateutil # pyfda does not startup without
     buildsystem: simple
     build-commands:
@@ -264,8 +265,8 @@ modules:
       - -DCBLAS=ON
     sources:
       - type: archive
-        url: https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v3.10.1.tar.gz
-        sha256: cd005cd021f144d7d5f7f33c943942db9f03a28d110d6a3b80d718a295f7f714
+        url: https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v3.10.0.tar.gz
+        sha256: 328c1bea493a32cac5257d84157dc686cc3ab0b004e2bea22044e0a59f6f8a19
         x-checker-data:
           type: anitya
           project-id: 1534
@@ -285,7 +286,7 @@ modules:
       - type: archive
         url: https://github.com/pybind/pybind11/archive/v2.6.2.tar.gz
         sha256: 8ff2fff22df038f5cd02cea8af56622bc67f5b64534f1b83b9f133b8366acff2
-
+        
   - name: python-scipy
     buildsystem: simple
     build-commands:
