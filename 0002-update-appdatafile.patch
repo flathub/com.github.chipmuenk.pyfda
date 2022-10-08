@@ -1,0 +1,40 @@
+From d10d7a11e18569c5b2f9bed7c3baec3c7398511d Mon Sep 17 00:00:00 2001
+From: Martin Marmsoler <martin.marmsoler@gmail.com>
+Date: Sat, 8 Oct 2022 17:31:02 +0200
+Subject: [PATCH 2/3] update appdatafile
+
+---
+ ressource/linux/pyfda.appdata.xml | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/ressource/linux/pyfda.appdata.xml b/ressource/linux/pyfda.appdata.xml
+index b1d4e6e9..d469bd86 100644
+--- a/ressource/linux/pyfda.appdata.xml
++++ b/ressource/linux/pyfda.appdata.xml
+@@ -89,6 +89,23 @@
+   </provides>
+ 
+   <releases>
++  <release version="0.7.1" date="2022-10-05">
++      <description>
++        <p>This release mainly fixes crashes with matplotlib 3.1 and scipy 1.8.0</p>
++      </description>
++    </release>
++    <release version="0.7.0" date="2022-10-04">
++      <description>
++        <p>Fixpoint filters</p>
++        <ul>
++          <li>This release has mainly addressed fixpoint simulation, introducing an IIR DF1 filter.</li>
++          <li>In the y[n] tab, you can now load CSV and WAV files as stimuli.</li>
++          <li>Export of CMSIS DSP coefficients in SOS format is now possible, somewhat hidden in the CSV export options.</li>
++          <li>Lots of bugfixes.</li>
++          <li>Usage of Github actions will ease future releases for hopefully shorter release cycles.</li>
++        </ul>
++      </description>
++    </release>
+     <release version="0.6.1" date="2022-03-27">
+       <description>
+         <p>This release mainly fixes crashes with matplotlib 3.1 and scipy 1.8.0</p>
+-- 
+2.37.3
+
