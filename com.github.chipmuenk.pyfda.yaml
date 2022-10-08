@@ -14,6 +14,11 @@ finish-args:
   - --socket=fallback-x11
   - --device=dri
   - --persist=.pyfda # so the configuration of different installations will not be overwritten
+
+Parameters:
+  git_url: &git_url https://github.com/chipmuenk/pyfda.git
+  git_tag: &git_tag v0.7.1
+
 modules:
   - pyqt5.json
 
@@ -367,5 +372,5 @@ modules:
       - install -Dm755 pyfda/images/icons/pyfda_icon.svg /app/share/icons/hicolor/scalable/apps/pyfda_icon.svg
     sources:
       - type: git
-        url: https://github.com/chipmuenk/pyfda.git
-        tag: v0.7.1
+        url: *git_url
+        tag: *git_tag
