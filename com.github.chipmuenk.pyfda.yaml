@@ -409,8 +409,4 @@ modules:
         url: *git_url
         tag: *git_tag
       - type: patch
-        path: 0001-Fix-syntax-error.patch
-      - type: patch
-        path: 0002-update-appdatafile.patch
-      - type: patch
-        path: 0003-fix-screenshot-urls.patch
+        path: appdataFix.patch

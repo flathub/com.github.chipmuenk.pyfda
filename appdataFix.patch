@@ -1,0 +1,294 @@
+From 1f1d542d73345446b3d313ba3efea143f22582f3 Mon Sep 17 00:00:00 2001
+From: Christian Muenker <mail@chipmuenk.de>
+Date: Wed, 5 Oct 2022 12:15:48 +0200
+Subject: [PATCH 1/9] Fix syntax error Signed-off-by: Christian Muenker
+ <mail@chipmuenk.de>
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index d7dee738..8dcde2c0 100644
+--- a/setup.py
++++ b/setup.py
+@@ -77,7 +77,7 @@ setup(
+     ],
+     # automatically find top-level package and sub-packages input_widgets,
+     # plot_widgets etc.:
+-    packages=find_namespace_packages()  # exclude=('contrib', 'docs', 'tests', 'bak',
++    packages=find_namespace_packages(),  # exclude=('contrib', 'docs', 'tests', 'bak',
+                                         #      'recipe')),
+     # Install data files (specified in MANIFEST.in)
+     include_package_data=True,
+-- 
+2.37.3
+
+
+From d10d7a11e18569c5b2f9bed7c3baec3c7398511d Mon Sep 17 00:00:00 2001
+From: Martin Marmsoler <martin.marmsoler@gmail.com>
+Date: Sat, 8 Oct 2022 17:31:02 +0200
+Subject: [PATCH 2/9] update appdatafile
+
+---
+ ressource/linux/pyfda.appdata.xml | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/ressource/linux/pyfda.appdata.xml b/ressource/linux/pyfda.appdata.xml
+index b1d4e6e9..d469bd86 100644
+--- a/ressource/linux/pyfda.appdata.xml
++++ b/ressource/linux/pyfda.appdata.xml
+@@ -89,6 +89,23 @@
+   </provides>
+ 
+   <releases>
++  <release version="0.7.1" date="2022-10-05">
++      <description>
++        <p>This release mainly fixes crashes with matplotlib 3.1 and scipy 1.8.0</p>
++      </description>
++    </release>
++    <release version="0.7.0" date="2022-10-04">
++      <description>
++        <p>Fixpoint filters</p>
++        <ul>
++          <li>This release has mainly addressed fixpoint simulation, introducing an IIR DF1 filter.</li>
++          <li>In the y[n] tab, you can now load CSV and WAV files as stimuli.</li>
++          <li>Export of CMSIS DSP coefficients in SOS format is now possible, somewhat hidden in the CSV export options.</li>
++          <li>Lots of bugfixes.</li>
++          <li>Usage of Github actions will ease future releases for hopefully shorter release cycles.</li>
++        </ul>
++      </description>
++    </release>
+     <release version="0.6.1" date="2022-03-27">
+       <description>
+         <p>This release mainly fixes crashes with matplotlib 3.1 and scipy 1.8.0</p>
+-- 
+2.37.3
+
+
+From ae39eac709fba66e8739e36216252a0283c54c4b Mon Sep 17 00:00:00 2001
+From: Martin Marmsoler <martin.marmsoler@gmail.com>
+Date: Sat, 8 Oct 2022 18:34:28 +0200
+Subject: [PATCH 3/9] fix screenshot urls
+
+---
+ ressource/linux/pyfda.appdata.xml | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/ressource/linux/pyfda.appdata.xml b/ressource/linux/pyfda.appdata.xml
+index d469bd86..33d02cba 100644
+--- a/ressource/linux/pyfda.appdata.xml
++++ b/ressource/linux/pyfda.appdata.xml
+@@ -70,14 +70,14 @@
+   <screenshots>
+     <screenshot type="default">
+       <caption>The main view</caption>
+-        <image>https://github.com/chipmuenk/pyfda/raw/master/img/pyfda_screenshot_3.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/master/img/pyfda_screenshot_3d_4.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/master/img/pyfda_screenshot_hn.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/master/img/pyfda_scr_shot_baq_impz.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/master/img/pyfda_screenshot_3d_3.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/master/img/pyfda_screenshot_pz.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/master/img/pyfda_screenshot_spec_error.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/master/img/pyfda_scr_shot_3d5_info.png</image>
++        <image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_3.png</image>
++		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_3d_4.png</image>
++		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_hn.png</image>
++		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_scr_shot_baq_impz.png</image>
++		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_3d_3.png</image>
++		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_pz.png</image>
++		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_spec_error.png</image>
++		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_scr_shot_3d5_info.png</image>
+     </screenshot>
+   </screenshots>
+ 
+-- 
+2.37.3
+
+
+From 87faad7faf708e5873c22d15937bd2add909cf0b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Christian=20M=C3=BCnker?= <mail@chipmuenk.de>
+Date: Sun, 9 Oct 2022 01:34:39 +0200
+Subject: [PATCH 4/9] Update README.md
+
+---
+ README.md | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/README.md b/README.md
+index ac3532c3..98399b3c 100644
+--- a/README.md
++++ b/README.md
+@@ -35,12 +35,10 @@ pyfda
+ pyfda source code ist distributed under a permissive MIT license, binaries / bundles come with a GPLv3 license due to bundled components with stricter licenses.
+ 
+ ## Binaries / Bundles
+-Currently, binaries (created with **[pyInstaller](https://www.pyinstaller.org/))** are provided for 64 bit Win 7 ... 10 and for 64 bit Ubuntu (created with 2020.04). The binaries may or may not work with other systems, too. The binaries don't modify the system (except for two ASCII configuration files and a log file), they self-extract to a temporary directory that is automatically deleted when pyfda is terminated (except when it crashes). No additionaly software / libraries need to be installed. For details, see [INSTALLATION.md](INSTALLATION.md).
++Currently, binaries (created with **[pyInstaller](https://www.pyinstaller.org/))** are provided for 64 bit Win 7 ... 10 and for OS X. The binaries don't modify the system (except for two ASCII configuration files and a log file), they self-extract to a temporary directory that is automatically deleted when pyfda is terminated (except when it crashes). No additionaly software / libraries need to be installed. For details, see [INSTALLATION.md](INSTALLATION.md).
+ 
+ A flatpak (Linux only) for pyfda is available on **[Flathub](https://flathub.org/apps/details/com.github.chipmuenk.pyfda)**. Some Linux distros have built-in flatpak support, for others it's easy to install with e.g. `sudo apt install flatpak`. For details check the [Flatpak](https://www.flatpak.org/) home page.
+ 
+-Help needed for generation of a MacOS binary! 
+-
+ ## Prerequisites
+ 
+ * Python versions: **3.7 ... 3.10**
+-- 
+2.37.3
+
+
+From bd0cbf36e27dd88754807b54539f7fa587509fe7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Christian=20M=C3=BCnker?= <mail@chipmuenk.de>
+Date: Sun, 9 Oct 2022 01:36:40 +0200
+Subject: [PATCH 5/9] Update README.md
+
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index 98399b3c..392d38e7 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@ pyfda
+ 
+ [![PyPI version](https://badge.fury.io/py/pyfda.svg)](https://badge.fury.io/py/pyfda)
+ [![Downloads/mo.](https://pepy.tech/badge/pyfda/month)](https://pepy.tech/project/pyfda)
+-[![Join the chat at https://gitter.im/chipmuenk/pyFDA](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chipmuenk/pyFDA?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
++<!-- [![Join the chat at https://gitter.im/chipmuenk/pyFDA](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chipmuenk/pyFDA?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) -->
+ [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+ [![ReadTheDocs](https://readthedocs.org/projects/pyfda/badge/?version=latest)](https://readthedocs.org/projects/pyfda/?badge=latest)
+ [![build_pyinstaller](https://github.com/chipmuenk/pyfda/actions/workflows/build_pyinstaller.yml/badge.svg)](https://github.com/chipmuenk/pyfda/actions/workflows/build_pyinstaller.yml)
+-- 
+2.37.3
+
+
+From ed4b7ee0a9faaaeaa35833b626d47c0e09733968 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Christian=20M=C3=BCnker?= <mail@chipmuenk.de>
+Date: Sun, 9 Oct 2022 01:37:21 +0200
+Subject: [PATCH 6/9] Update README.md
+
+---
+ README.md | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/README.md b/README.md
+index 392d38e7..660e3c8b 100644
+--- a/README.md
++++ b/README.md
+@@ -3,8 +3,7 @@ pyfda
+ ## Python Filter Design Analysis Tool
+ 
+ [![PyPI version](https://badge.fury.io/py/pyfda.svg)](https://badge.fury.io/py/pyfda)
+-[![Downloads/mo.](https://pepy.tech/badge/pyfda/month)](https://pepy.tech/project/pyfda)
+-<!-- [![Join the chat at https://gitter.im/chipmuenk/pyFDA](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chipmuenk/pyFDA?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) -->
++[![Downloads/mo.](https://pepy.tech/badge/pyfda/month)](https://pepy.tech/project/pyfda)<!-- [![Join the chat at https://gitter.im/chipmuenk/pyFDA](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chipmuenk/pyFDA?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) -->
+ [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+ [![ReadTheDocs](https://readthedocs.org/projects/pyfda/badge/?version=latest)](https://readthedocs.org/projects/pyfda/?badge=latest)
+ [![build_pyinstaller](https://github.com/chipmuenk/pyfda/actions/workflows/build_pyinstaller.yml/badge.svg)](https://github.com/chipmuenk/pyfda/actions/workflows/build_pyinstaller.yml)
+-- 
+2.37.3
+
+
+From 8eaca650b0a5068537b90ac8677743134488043f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Christian=20M=C3=BCnker?= <mail@chipmuenk.de>
+Date: Sun, 9 Oct 2022 01:51:36 +0200
+Subject: [PATCH 7/9] Update README.md
+
+---
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/README.md b/README.md
+index 660e3c8b..a051c778 100644
+--- a/README.md
++++ b/README.md
+@@ -8,7 +8,7 @@ pyfda
+ [![ReadTheDocs](https://readthedocs.org/projects/pyfda/badge/?version=latest)](https://readthedocs.org/projects/pyfda/?badge=latest)
+ [![build_pyinstaller](https://github.com/chipmuenk/pyfda/actions/workflows/build_pyinstaller.yml/badge.svg)](https://github.com/chipmuenk/pyfda/actions/workflows/build_pyinstaller.yml)
+ 
+-**pyfda** is tool written in Python / Qt for analysing and designing discrete time filters with a user-friendly GUI. Fixpoint filter implementations (for some filter types) can be simulated and tested for overflow and quantization behaviour in the time and frequency domain.
++**pyfda** is a tool written in Python / Qt for analyzing and designing discrete time filters with a user-friendly GUI. Fixpoint filter implementations (for some filter types) can be simulated and tested for overflow and quantization behaviour in the time and frequency domain.
+ 
+ ![Screenshot](img/pyfda_screenshot_3.png)
+ 
+@@ -34,7 +34,7 @@ pyfda
+ pyfda source code ist distributed under a permissive MIT license, binaries / bundles come with a GPLv3 license due to bundled components with stricter licenses.
+ 
+ ## Binaries / Bundles
+-Currently, binaries (created with **[pyInstaller](https://www.pyinstaller.org/))** are provided for 64 bit Win 7 ... 10 and for OS X. The binaries don't modify the system (except for two ASCII configuration files and a log file), they self-extract to a temporary directory that is automatically deleted when pyfda is terminated (except when it crashes). No additionaly software / libraries need to be installed. For details, see [INSTALLATION.md](INSTALLATION.md).
++Currently, binaries (created with **[pyInstaller](https://www.pyinstaller.org/))** are provided for 64 bit Windows and for OS X. The binaries don't modify the system (except for two ASCII configuration files and a log file), they self-extract to a temporary directory that is automatically deleted when pyfda is terminated (except when it crashes). No additionaly software / libraries need to be installed. For details, see [INSTALLATION.md](INSTALLATION.md).
+ 
+ A flatpak (Linux only) for pyfda is available on **[Flathub](https://flathub.org/apps/details/com.github.chipmuenk.pyfda)**. Some Linux distros have built-in flatpak support, for others it's easy to install with e.g. `sudo apt install flatpak`. For details check the [Flatpak](https://www.flatpak.org/) home page.
+ 
+-- 
+2.37.3
+
+
+From 71e4ed445d078c80b24f5836fa6846d8fd52791e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Christian=20M=C3=BCnker?= <mail@chipmuenk.de>
+Date: Sun, 9 Oct 2022 02:16:25 +0200
+Subject: [PATCH 8/9] Update README.md
+
+Add badge for github downloads
+---
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index a051c778..89a542ec 100644
+--- a/README.md
++++ b/README.md
+@@ -3,7 +3,8 @@ pyfda
+ ## Python Filter Design Analysis Tool
+ 
+ [![PyPI version](https://badge.fury.io/py/pyfda.svg)](https://badge.fury.io/py/pyfda)
+-[![Downloads/mo.](https://pepy.tech/badge/pyfda/month)](https://pepy.tech/project/pyfda)<!-- [![Join the chat at https://gitter.im/chipmuenk/pyFDA](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chipmuenk/pyFDA?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) -->
++[![Downloads/mo.](https://pepy.tech/badge/pyfda/month)](https://pepy.tech/project/pyfda)
++![Total Github Downloads](https://img.shields.io/github/downloads/chipmuenk/pyfda/total?label=Total%20Github%20Downloads)<!-- [![Join the chat at https://gitter.im/chipmuenk/pyFDA](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chipmuenk/pyFDA?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) -->
+ [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+ [![ReadTheDocs](https://readthedocs.org/projects/pyfda/badge/?version=latest)](https://readthedocs.org/projects/pyfda/?badge=latest)
+ [![build_pyinstaller](https://github.com/chipmuenk/pyfda/actions/workflows/build_pyinstaller.yml/badge.svg)](https://github.com/chipmuenk/pyfda/actions/workflows/build_pyinstaller.yml)
+-- 
+2.37.3
+
+
+From 6cd7ef65a2030c2f8909cf589e13fb825062c975 Mon Sep 17 00:00:00 2001
+From: Martin Marmsoler <martin.marmsoler@gmail.com>
+Date: Sun, 9 Oct 2022 15:56:50 +0200
+Subject: [PATCH 9/9] fix screenshot urls
+
+---
+ ressource/linux/pyfda.appdata.xml | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/ressource/linux/pyfda.appdata.xml b/ressource/linux/pyfda.appdata.xml
+index 33d02cba..eb6e169b 100644
+--- a/ressource/linux/pyfda.appdata.xml
++++ b/ressource/linux/pyfda.appdata.xml
+@@ -70,14 +70,14 @@
+   <screenshots>
+     <screenshot type="default">
+       <caption>The main view</caption>
+-        <image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_3.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_3d_4.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_hn.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_scr_shot_baq_impz.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_3d_3.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_pz.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_screenshot_spec_error.png</image>
+-		<image>https://github.com/chipmuenk/pyfda/raw/main/img/pyfda_scr_shot_3d5_info.png</image>
++        <image>https://raw.githubusercontent.com/chipmuenk/pyfda/main/img/pyfda_screenshot_3.png</image>
++		<image>https://raw.githubusercontent.com/chipmuenk/pyfda/main/img/pyfda_screenshot_3d_4.png</image>
++		<image>https://raw.githubusercontent.com/chipmuenk/pyfda/main/img/pyfda_screenshot_hn.png</image>
++		<image>https://raw.githubusercontent.com/chipmuenk/pyfda/main/img/pyfda_scr_shot_baq_impz.png</image>
++		<image>https://raw.githubusercontent.com/chipmuenk/pyfda/main/img/pyfda_screenshot_3d_3.png</image>
++		<image>https://raw.githubusercontent.com/chipmuenk/pyfda/main/img/pyfda_screenshot_pz.png</image>
++		<image>https://raw.githubusercontent.com/chipmuenk/pyfda/main/img/pyfda_screenshot_spec_error.png</image>
++		<image>https://raw.githubusercontent.com/chipmuenk/pyfda/main/img/pyfda_scr_shot_3d5_info.png</image>
+     </screenshot>
+   </screenshots>
+ 
+-- 
+2.37.3
+
