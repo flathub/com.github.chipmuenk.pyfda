@@ -14,6 +14,11 @@ finish-args:
   - --socket=fallback-x11
   - --device=dri
   - --persist=.pyfda # so the configuration of different installations will not be overwritten
+
+Parameters:
+  git_url: &git_url https://github.com/chipmuenk/pyfda.git
+  git_tag: &git_tag v0.7.1
+
 modules:
   - pyqt5.json
 
@@ -28,17 +33,30 @@ modules:
         x-checker-data:
           type: pypi
           name: packaging
-      #- type: patch
-        #path: relax-dependencies.patch
+
+  - name: python-flit-core
+    buildsystem: simple
+    build-commands:
+      - pip3 install . --prefix=/app --no-index --find-links .
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/15/d1/d8798b83e953fd6f86ca9b50f93eec464a9305b0661469c8234e61095481/flit_core-3.7.1.tar.gz
+        sha256: 14955af340c43035dbfa96b5ee47407e377ee337f69e70f73064940d27d0a44f
+        x-checker-data:
+          type: pypi
+          name: flit_core
 
   - name: python-pyparsing
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - 'pip3 install --no-build-isolation --verbose --prefix=${FLATPAK_DEST} .'
+    cleanup:
+      - '*'
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz
-        sha256: 18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea
+        url: >-
+          https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz
+        sha256: 2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb
         x-checker-data:
           type: pypi
           name: pyparsing
@@ -50,24 +68,24 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/64/4a/b008d1f8a7b9f5206ecf70a53f84e654707e7616a771d84c05151a4713e9/numpy-1.22.3.zip
-        sha256: dbc7601a3b7472d559dc7b933b18b4b66f9aa7452c120e87dfb33d02008c8a18
+        url: https://files.pythonhosted.org/packages/0a/88/f4f0c7a982efdf7bf22f283acf6009b29a9cc5835b684a49f8d3a4adb22f/numpy-1.23.3.tar.gz
+        sha256: 51bf49c0cd1d52be0a240aa66f3458afc4b95d8993d2d04f0d91fa60c10af6cd
         x-checker-data:
           type: pypi
           name: numpy
-          
+
   - name: python-certifi # needed by matplotlib
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz
-        sha256: 78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872
+        url: https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz
+        sha256: 0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14
         x-checker-data:
           type: pypi
           name: certifi
-          
+
   - name: qhull # needed by matplotlib
     buildsystem: cmake-ninja
     sources:
@@ -81,38 +99,44 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/4a/18/477d3d9eb2f88230ff2a41de9d8ffa3554b706352787d289f57f76bfba0b/setuptools_scm-6.4.2.tar.gz
-        sha256: 6833ac65c6ed9711a4d5d2266f8024cfa07c533a0e55f4c12f6eff280a5a9e30
+        url: https://files.pythonhosted.org/packages/d0/43/f038b5009f93bcd77b1b8da9e6d424b739ab17aec9726f3a99eba23d53ca/setuptools_scm-7.0.5.tar.gz
+        sha256: 031e13af771d6f892b941adb6ea04545bbf91ebc5ce68c78aaf3fff6e1fb4844
         x-checker-data:
           type: pypi
           name: setuptools-scm
-          
-  - name: python-flit-core
+
+  # needed by python-setuptools-scm-git-archive
+  - name: python3-tomli
     buildsystem: simple
     build-commands:
-      - pip3 install . --prefix=/app --no-index --find-links .
+      - >-
+        pip3 install --verbose --exists-action=i --no-index
+        --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "tomli"
+        --no-build-isolation
     sources:
-      - type: archive
-        url: https://files.pythonhosted.org/packages/15/d1/d8798b83e953fd6f86ca9b50f93eec464a9305b0661469c8234e61095481/flit_core-3.7.1.tar.gz
-        sha256: 14955af340c43035dbfa96b5ee47407e377ee337f69e70f73064940d27d0a44f
-        x-checker-data:
-          type: pypi
-          name: flit_core
-          
-  - python3-tomli.json # needed by python-setuptools-scm-git-archive     
-          
-  - name: python-setuptools-scm-git-archive # needed by matplotlib
+      - type: file
+        url: >-
+          https://files.pythonhosted.org/packages/75/50/973397c5ba854445bcc396b593b5db1958da6ab8d665b27397daa1497018/tomli-1.2.1.tar.gz
+        sha256: a5b75cb6f3968abb47af1b40c1819dc519ea82bcc065776a866e8d74c5ca9442
+
+  # needed by matplotlib      
+  - name: python-typing-extensions
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - >-
+        pip3 install --verbose --exists-action=i --no-index
+        --find-links=file://${PWD} --prefix=${FLATPAK_DEST} typing-extensions
+        --no-build-isolation
     sources:
-      - type: archive
-        url: https://files.pythonhosted.org/packages/7e/2c/0c15b29a1b5940250bfdc4a4f53272e35cd7cf8a34159291b6b4ec9eb291/setuptools_scm_git_archive-1.1.tar.gz
-        sha256: 6026f61089b73fa1b5ee737e95314f41cb512609b393530385ed281d0b46c062
+      - type: file
+        url: >-
+          https://files.pythonhosted.org/packages/75/e1/932e06004039dd670c9d5e1df0cd606bf46e29a28e65d5bb28e894ea29c9/typing_extensions-4.2.0-py3-none-any.whl
+        sha256: 6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708
         x-checker-data:
           type: pypi
-          name: setuptools-scm-git-archive
-          
+          name: typing-extensions
+          packagetype: bdist_wheel
+
   - name: python-matplotlib
     buildsystem: simple
     build-options:
@@ -124,8 +148,8 @@ modules:
       - type: file
         path: matplotlib-setup.cfg
       - type: archive
-        url: https://files.pythonhosted.org/packages/8a/46/425a44ab9a71afd2f2c8a78b039c1af8ec21e370047f0ad6e43ca819788e/matplotlib-3.5.1.tar.gz
-        sha256: b2e9810e09c3a47b73ce9cab5a72243a1258f61e7900969097a817232246ce1c
+        url: https://files.pythonhosted.org/packages/0f/23/2eed6f40e1afca9c272fa7c13b437b7784c94a0c180f796c0da114265bf9/matplotlib-3.6.1.tar.gz
+        sha256: e2d1b7225666f7e1bcc94c0bc9c587a82e3e8691da4757e357e5c2515222ee37
         x-checker-data:
           type: pypi
           name: matplotlib
@@ -148,8 +172,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/c7/c0/5eef3c2fb687b71433f61638e317d468c3276d210bd462cfa0c3039ddf26/kiwisolver-1.4.1.tar.gz
-        sha256: 91bfcd2a14bea6f93c86876c4abccb53dc3f0bcad55e3a0af0b3e57ced6eef11
+        url: https://files.pythonhosted.org/packages/5f/5c/272a7dd49a1914f35cd8d6d9f386defa8b047f6fbd06badd6b77b3ba24e7/kiwisolver-1.4.4.tar.gz
+        sha256: d41997519fcba4a1e46eb4a2fe31bc12f0ff957b2b81bac28db24744f333e955
         x-checker-data:
           type: pypi
           name: kiwisolver
@@ -160,8 +184,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/76/b3/935d7a16f696ecfa8e06ce1153b1f54925a42904c245cebb15077762b965/numexpr-2.8.1.tar.gz
-        sha256: cd779aa44dd986c4ef10163519239602b027be06a527946656207acf1f58113b
+        url: https://files.pythonhosted.org/packages/b2/52/79f6b7db72b4cb847006d915801cc423c6b57e794c3802cfda648a4c6321/numexpr-2.8.3.tar.gz
+        sha256: cb647c9d9c785dae0759bf6c875cde2bec472b5c3f7a6015734b161ae766d141
         x-checker-data:
           type: pypi
           name: numexpr
@@ -172,8 +196,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/15/06/d60f21eda994b044cbd496892d4d4c5c708aa597fcaded7d421513cb219b/Markdown-3.3.6.tar.gz
-        sha256: 76df8ae32294ec39dcf89340382882dfa12975f87f45c3ed1ecdb1e8cefc7006
+        url: https://files.pythonhosted.org/packages/85/7e/133e943e97a943d2f1d8bae0c5060f8ac50e6691754eb9dbe036b047a9bb/Markdown-3.4.1.tar.gz
+        sha256: 3b809086bb6efad416156e00a0da66fe47618a5d6918dd688f53f40c8e4cfeff
         x-checker-data:
           type: pypi
           name: Markdown
@@ -184,8 +208,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/93/d1/ff80fd8a5d7c2bb9ef9968bbffdb65445bec990c427d55899af22900f57d/mplcursors-0.5.1.tar.gz
-        sha256: d52bc6e6c68371937dcf147d29ddd396f64a610663af006ef9145055bd2dcc84
+        url: https://files.pythonhosted.org/packages/03/ec/f28dd523e8397ae8c55878b802380aae7bfd65448f17e5c2b30927fe6575/mplcursors-0.5.2.tar.gz
+        sha256: 78febb32adf2d9040e2f6fc84b5e4cfb8f96b4ede4916fc418e5fffbcfdc0957
         x-checker-data:
           type: pypi
           name: mplcursors
@@ -196,8 +220,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/57/b1/b880503681ea1b64df05106fc7e3c4e3801736cf63deffc6fa7fc5404cf5/docutils-0.18.1.tar.gz
-        sha256: 679987caf361a7539d76e584cbeddc311e3aee937877c87346f31debc63e9d06
+        url: https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz
+        sha256: 33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6
         x-checker-data:
           type: pypi
           name: docutils
@@ -214,7 +238,20 @@ modules:
           type: pypi
           name: xlwt
 
-  - python3-Pillow.json   # pyfda does not startup without
+  # pyfda does not startup without
+  - name: python3-Pillow
+    buildsystem: simple
+    build-commands:
+      - >-
+        pip3 install --verbose --exists-action=i --no-index
+        --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "Pillow==9.0.1"
+        --no-build-isolation
+    sources:
+      - type: file
+        url: >-
+          https://files.pythonhosted.org/packages/03/a3/f61a9a7ff7969cdef2a6e0383a346eb327495d20d25a2de5a088dbb543a6/Pillow-9.0.1.tar.gz
+        sha256: 6c8bc8238a7dfdaf7a75f5ec5a663f4173f8c367e5a39f87e720495e1eed75fa
+
   - name: python-cycler # pyfda does not startup without
     buildsystem: simple
     build-commands:
@@ -226,7 +263,7 @@ modules:
         x-checker-data:
           type: pypi
           name: cycler
-          
+
   - name: python-dateutil # pyfda does not startup without
     buildsystem: simple
     build-commands:
@@ -265,8 +302,8 @@ modules:
       - -DCBLAS=ON
     sources:
       - type: archive
-        url: https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v3.10.0.tar.gz
-        sha256: 328c1bea493a32cac5257d84157dc686cc3ab0b004e2bea22044e0a59f6f8a19
+        url: https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v3.10.1.tar.gz
+        sha256: cd005cd021f144d7d5f7f33c943942db9f03a28d110d6a3b80d718a295f7f714
         x-checker-data:
           type: anitya
           project-id: 1534
@@ -286,7 +323,7 @@ modules:
       - type: archive
         url: https://github.com/pybind/pybind11/archive/v2.6.2.tar.gz
         sha256: 8ff2fff22df038f5cd02cea8af56622bc67f5b64534f1b83b9f133b8366acff2
-        
+
   - name: python-scipy
     buildsystem: simple
     build-commands:
@@ -300,8 +337,8 @@ modules:
         LDFLAGS: -shared
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/b4/a2/4faa34bf0cdbefd5c706625f1234987795f368eb4e97bde9d6f46860843e/scipy-1.8.0.tar.gz
-        sha256: 31d4f2d6b724bc9a98e527b5849b8a7e589bf1ea630c33aa563eda912c9ff0bd
+        url: https://files.pythonhosted.org/packages/db/af/16906139f52bc6866c43401869ce247662739ad71afa11c6f18505eb0546/scipy-1.9.1.tar.gz
+        sha256: 26d28c468900e6d5fdb37d2812ab46db0ccd22c63baa095057871faa3a498bc9
         x-checker-data:
           type: pypi
           name: scipy
@@ -317,19 +354,20 @@ modules:
             x-checker-data:
               type: pypi
               name: gast
+
+      # needed by scipy
       - name: python-pythran
         buildsystem: simple
         build-commands:
           - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
         sources:
           - type: archive
-            url: https://files.pythonhosted.org/packages/c6/e6/986a967dcca91d89e36f4d4a2f69a052030bce01a7cd48a6b7fba1a50189/pythran-0.9.12.post1.tar.gz
-            sha256: e7589cf83b0befa9a1b55e98223caf89aff887d9e3f14be912cf8703a717f185
-          - type: patch
-            path: remove_pytest-runner.patch
+            url: https://files.pythonhosted.org/packages/99/e0/ed0e81de05cfa4ecbcbceec6603d175387d8bc7a6332cbfd155d09958ccf/pythran-0.12.0.tar.gz
+            sha256: eff3dd0d3eebe57372f0d14f82985525e9bcdfb5b1d1010e1932cf9207060f9f
             x-checker-data:
               type: pypi
               name: pythran
+
       - name: python-beniget
         buildsystem: simple
         build-commands:
@@ -341,6 +379,7 @@ modules:
             x-checker-data:
               type: pypi
               name: beniget
+
       - name: python-ply
         buildsystem: simple
         build-commands:
@@ -367,5 +406,7 @@ modules:
       - install -Dm755 pyfda/images/icons/pyfda_icon.svg /app/share/icons/hicolor/scalable/apps/pyfda_icon.svg
     sources:
       - type: git
-        url: https://github.com/chipmuenk/pyfda.git
-        commit: 5634b05fffb8b04791b7846a6cc7da195456a90d
+        url: *git_url
+        tag: *git_tag
+      - type: patch
+        path: appdataFix.patch
