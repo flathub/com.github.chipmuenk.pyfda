@@ -49,7 +49,7 @@ modules:
   - name: python-pyparsing
     buildsystem: simple
     build-commands:
-      - 'pip3 install --no-build-isolation --verbose --prefix=${FLATPAK_DEST} .'
+      - pip3 install --no-build-isolation --verbose --prefix=${FLATPAK_DEST} .
     cleanup:
       - '*'
     sources:
@@ -68,8 +68,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/0a/88/f4f0c7a982efdf7bf22f283acf6009b29a9cc5835b684a49f8d3a4adb22f/numpy-1.23.3.tar.gz
-        sha256: 51bf49c0cd1d52be0a240aa66f3458afc4b95d8993d2d04f0d91fa60c10af6cd
+        url: https://files.pythonhosted.org/packages/64/8e/9929b64e146d240507edaac2185cd5516f00b133be5b39250d253be25a64/numpy-1.23.4.tar.gz
+        sha256: ed2cc92af0efad20198638c69bb0fc2870a58dabfba6eb722c933b48556c686c
         x-checker-data:
           type: pypi
           name: numpy
@@ -130,8 +130,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/75/e1/932e06004039dd670c9d5e1df0cd606bf46e29a28e65d5bb28e894ea29c9/typing_extensions-4.2.0-py3-none-any.whl
-        sha256: 6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708
+          https://files.pythonhosted.org/packages/0b/8e/f1a0a5a76cfef77e1eb6004cb49e5f8d72634da638420b9ea492ce8305e8/typing_extensions-4.4.0-py3-none-any.whl
+        sha256: 16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e
         x-checker-data:
           type: pypi
           name: typing-extensions
@@ -160,8 +160,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/e0/94/3cca7fccecf9b63219f3bf8f08af719f6d3ab06c4acdcc9372a15a12b593/cppy-1.2.0.tar.gz
-        sha256: 95e8862e4f826c3f2a6b7b658333b162f80cbe9f943aa0d0a7a6b2ef850aeffc
+        url: https://files.pythonhosted.org/packages/c5/7e/6cc5acd93752ee52d2f0423046072a2ce3ae16dfcd44373b9fe2a0222204/cppy-1.2.1.tar.gz
+        sha256: 83b43bf17b1085ac15c5debdb42154f138b928234b21447358981f69d0d6fe1b
         x-checker-data:
           type: pypi
           name: cppy
@@ -337,8 +337,8 @@ modules:
         LDFLAGS: -shared
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/db/af/16906139f52bc6866c43401869ce247662739ad71afa11c6f18505eb0546/scipy-1.9.1.tar.gz
-        sha256: 26d28c468900e6d5fdb37d2812ab46db0ccd22c63baa095057871faa3a498bc9
+        url: https://files.pythonhosted.org/packages/17/07/68df07679ec4a4a24bff00147a14908aa73e9e8912d142886e8d0e1e3d64/scipy-1.9.2.tar.gz
+        sha256: 99e7720caefb8bca6ebf05c7d96078ed202881f61e0c68bd9e0f3e8097d6f794
         x-checker-data:
           type: pypi
           name: scipy
