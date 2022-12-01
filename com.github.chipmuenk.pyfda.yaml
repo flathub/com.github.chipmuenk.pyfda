@@ -25,7 +25,7 @@ modules:
   - name: python3-packaging
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "packaging" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz
@@ -65,7 +65,7 @@ modules:
     buildsystem: simple
     build-commands:
       - rm pyproject.toml
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "numpy" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/42/38/775b43da55fa7473015eddc9a819571517d9a271a9f8134f68fb9be2f212/numpy-1.23.5.tar.gz
@@ -77,7 +77,7 @@ modules:
   - name: python-certifi # needed by matplotlib
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "certifi" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz
@@ -96,7 +96,7 @@ modules:
   - name: python-setuptools-scm
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "setuptools_scm" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/d0/43/f038b5009f93bcd77b1b8da9e6d424b739ab17aec9726f3a99eba23d53ca/setuptools_scm-7.0.5.tar.gz
@@ -143,7 +143,7 @@ modules:
       env:
         MPLSETUPCFG: /run/build/python-matplotlib/matplotlib-setup.cfg
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "matplotlib" --no-build-isolation
     sources:
       - type: file
         path: matplotlib-setup.cfg
@@ -167,7 +167,7 @@ modules:
   - name: python-kiwisolver # needed by matplotlib
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "kiwisolver" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/5f/5c/272a7dd49a1914f35cd8d6d9f386defa8b047f6fbd06badd6b77b3ba24e7/kiwisolver-1.4.4.tar.gz
@@ -179,7 +179,7 @@ modules:
   - name: python-numexpr # needed by pyfda
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "numexpr" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/45/d0/0d5216512b59f139053f2d6c941598752ac8ad50eb3737e4accca08b3b50/numexpr-2.8.4.tar.gz
@@ -191,7 +191,7 @@ modules:
   - name: python-markdown # needed by pyfda
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "Markdown" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/85/7e/133e943e97a943d2f1d8bae0c5060f8ac50e6691754eb9dbe036b047a9bb/Markdown-3.4.1.tar.gz
@@ -203,7 +203,7 @@ modules:
   - name: python-mplcursors # needed by pyfda
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "mplcursors" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/03/ec/f28dd523e8397ae8c55878b802380aae7bfd65448f17e5c2b30927fe6575/mplcursors-0.5.2.tar.gz
@@ -215,7 +215,7 @@ modules:
   - name: python-docutils # needed by pyfda
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "docutils" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz
@@ -227,7 +227,7 @@ modules:
   - name: python-xlwt # needed by pyfda
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "xlwt" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/06/97/56a6f56ce44578a69343449aa5a0d98eefe04085d69da539f3034e2cd5c1/xlwt-1.3.0.tar.gz
@@ -253,7 +253,7 @@ modules:
   - name: python-cycler # pyfda does not startup without
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "cycler" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/34/45/a7caaacbfc2fa60bee42effc4bcc7d7c6dbe9c349500e04f65a861c15eb9/cycler-0.11.0.tar.gz
@@ -265,7 +265,7 @@ modules:
   - name: python-dateutil # pyfda does not startup without
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "python-dateutil" --no-build-isolation
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz
@@ -344,7 +344,7 @@ modules:
       - name: python-gast
         buildsystem: simple
         build-commands:
-          - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+          - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "gast" --no-build-isolation
         sources:
           - type: archive
             url: https://files.pythonhosted.org/packages/48/a3/0bd844c54ae8141642088b7ae09dd38fec2ec7faa9b7d25bb6a23c1f266f/gast-0.5.3.tar.gz
@@ -357,7 +357,7 @@ modules:
       - name: python-pythran
         buildsystem: simple
         build-commands:
-          - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+          - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "pythran" --no-build-isolation
         sources:
           - type: archive
             url: https://files.pythonhosted.org/packages/99/e0/ed0e81de05cfa4ecbcbceec6603d175387d8bc7a6332cbfd155d09958ccf/pythran-0.12.0.tar.gz
@@ -369,7 +369,7 @@ modules:
       - name: python-beniget
         buildsystem: simple
         build-commands:
-          - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+          - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "beniget" --no-build-isolation
         sources:
           - type: archive
             url: https://files.pythonhosted.org/packages/14/e7/50cbac38f77eca8efd39516be6651fdb9f3c4c0fab8cf2cf05f612578737/beniget-0.4.1.tar.gz
@@ -381,7 +381,7 @@ modules:
       - name: python-ply
         buildsystem: simple
         build-commands:
-          - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+          - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "ply" --no-build-isolation
         sources:
           - type: archive
             url: https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz
@@ -393,7 +393,7 @@ modules:
   - name: pyfda
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "pyfda" --no-build-isolation
       - desktop-file-install --dir=/app/share/applications ressource/mime/applications/pyfda.desktop
       - install -Dm755 ressource/linux/pyfda.appdata.xml /app/share/appdata/pyfda.appdata.xml
       - install -Dm755 pyfda/images/icons/pyfda_icon_16.png /app/share/icons/hicolor/16x16/apps/pyfda_icon.png
