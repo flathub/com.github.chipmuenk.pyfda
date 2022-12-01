@@ -157,11 +157,12 @@ modules:
   - name: python-cppy # needed by kiwisolver
     buildsystem: simple
     build-commands:
-        - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "cppy" --no-build-isolation
+      - python3 -mpip  install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "cppy" --no-build-isolation
     sources:
-    - type: file
-      url: https://files.pythonhosted.org/packages/31/5e/b8faf2b2aeb679c0f4359fd1a4716fe90d65f72f72639413ffb95f3c3b46/cppy-1.2.1-py3-none-any.whl
-      sha256: c5b5eac3d3f42593a07d35275b0bc27f447b76b9ad8f27c62e3cfa286dc1988a
+      - type: file
+        url: https://files.pythonhosted.org/packages/31/5e/b8faf2b2aeb679c0f4359fd1a4716fe90d65f72f72639413ffb95f3c3b46/cppy-1.2.1-py3-none-any.whl
+        sha256: c5b5eac3d3f42593a07d35275b0bc27f447b76b9ad8f27c62e3cfa286dc1988a
 
 
   - name: python-kiwisolver # needed by matplotlib
@@ -300,8 +301,8 @@ modules:
       - -DCBLAS=ON
     sources:
       - type: archive
-        url: https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v3.10.1.tar.gz
-        sha256: cd005cd021f144d7d5f7f33c943942db9f03a28d110d6a3b80d718a295f7f714
+        url: https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v3.11.0.tar.gz
+        sha256: 4b9ba79bfd4921ca820e83979db76ab3363155709444a787979e81c22285ffa9
         x-checker-data:
           type: anitya
           project-id: 1534
