@@ -148,8 +148,8 @@ modules:
       - type: file
         path: matplotlib-setup.cfg
       - type: archive
-        url: https://files.pythonhosted.org/packages/0f/23/2eed6f40e1afca9c272fa7c13b437b7784c94a0c180f796c0da114265bf9/matplotlib-3.6.1.tar.gz
-        sha256: e2d1b7225666f7e1bcc94c0bc9c587a82e3e8691da4757e357e5c2515222ee37
+        url: https://files.pythonhosted.org/packages/91/1c/a48fd779287df3425c289cc2ff728980a5b355f15f4c3c40e1822770ba44/matplotlib-3.6.2.tar.gz
+        sha256: b03fd10a1709d0101c054883b550f7c4c5e974f751e2680318759af005964990
         x-checker-data:
           type: pypi
           name: matplotlib
