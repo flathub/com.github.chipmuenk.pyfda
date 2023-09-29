@@ -28,8 +28,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz
-        sha256: dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb
+        url: https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz
+        sha256: a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f
         x-checker-data:
           type: pypi
           name: packaging
@@ -40,8 +40,8 @@ modules:
       - pip3 install . --prefix=/app --no-index --find-links .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/10/e5/be08751d07b30889af130cec20955c987a74380a10058e6e8856e4010afc/flit_core-3.8.0.tar.gz
-        sha256: b305b30c99526df5e63d6022dd2310a0a941a187bd3884f4c8ef0418df6c39f3
+        url: https://files.pythonhosted.org/packages/c4/e6/c1ac50fe3eebb38a155155711e6e864e254ce4b6e17fe2429b4c4d5b9e80/flit_core-3.9.0.tar.gz
+        sha256: 72ad266176c4a3fcfab5f2930d76896059851240570ce9a98733b658cb786eba
         x-checker-data:
           type: pypi
           name: flit_core
@@ -55,8 +55,8 @@ modules:
     sources:
       - type: archive
         url: >-
-          https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz
-        sha256: 2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb
+          https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz
+        sha256: ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db
         x-checker-data:
           type: pypi
           name: pyparsing
@@ -68,8 +68,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/42/38/775b43da55fa7473015eddc9a819571517d9a271a9f8134f68fb9be2f212/numpy-1.23.5.tar.gz
-        sha256: 1b1766d6f397c18153d40015ddfc79ddb715cabadc04d2d228d4e5a8bc4ded1a
+        url: https://files.pythonhosted.org/packages/55/b3/b13bce39ba82b7398c06d10446f5ffd5c07db39b09bd37370dc720c7951c/numpy-1.26.0.tar.gz
+        sha256: f93fc78fe8bf15afe2b8d6b6499f1c73953169fad1e9a8dd086cdff3190e7fdf
         x-checker-data:
           type: pypi
           name: numpy
@@ -80,8 +80,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz
-        sha256: 35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3
+        url: https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz
+        sha256: 539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082
         x-checker-data:
           type: pypi
           name: certifi
@@ -99,8 +99,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/d0/43/f038b5009f93bcd77b1b8da9e6d424b739ab17aec9726f3a99eba23d53ca/setuptools_scm-7.0.5.tar.gz
-        sha256: 031e13af771d6f892b941adb6ea04545bbf91ebc5ce68c78aaf3fff6e1fb4844
+        url: https://files.pythonhosted.org/packages/af/54/0a75c590c1aa1908c1036de783c0b7136d8fe4beb8ce4c52e4d92b9e9ca7/setuptools-scm-8.0.3.tar.gz
+        sha256: 0169fd70197efda2f8c4d0b2a7a3d614431b488116f37b79d031e9e7ec884d8c
         x-checker-data:
           type: pypi
           name: setuptools-scm
@@ -130,8 +130,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/0b/8e/f1a0a5a76cfef77e1eb6004cb49e5f8d72634da638420b9ea492ce8305e8/typing_extensions-4.4.0-py3-none-any.whl
-        sha256: 16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e
+          https://files.pythonhosted.org/packages/24/21/7d397a4b7934ff4028987914ac1044d3b7d52712f30e2ac7a2ae5bc86dd0/typing_extensions-4.8.0-py3-none-any.whl
+        sha256: 8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0
         x-checker-data:
           type: pypi
           name: typing-extensions
@@ -148,8 +148,8 @@ modules:
       - type: file
         path: matplotlib-setup.cfg
       - type: archive
-        url: https://files.pythonhosted.org/packages/91/1c/a48fd779287df3425c289cc2ff728980a5b355f15f4c3c40e1822770ba44/matplotlib-3.6.2.tar.gz
-        sha256: b03fd10a1709d0101c054883b550f7c4c5e974f751e2680318759af005964990
+        url: https://files.pythonhosted.org/packages/23/e1/77016194621fb1356aafeb2186f07b5dede62ea2043bf03f82325c4fccc5/matplotlib-3.8.0.tar.gz
+        sha256: df8505e1c19d5c2c26aff3497a7cbd3ccfc2e97043d1e4db3e76afa399164b69
         x-checker-data:
           type: pypi
           name: matplotlib
@@ -171,8 +171,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/5f/5c/272a7dd49a1914f35cd8d6d9f386defa8b047f6fbd06badd6b77b3ba24e7/kiwisolver-1.4.4.tar.gz
-        sha256: d41997519fcba4a1e46eb4a2fe31bc12f0ff957b2b81bac28db24744f333e955
+        url: https://files.pythonhosted.org/packages/b9/2d/226779e405724344fc678fcc025b812587617ea1a48b9442628b688e85ea/kiwisolver-1.4.5.tar.gz
+        sha256: e57e563a57fb22a142da34f38acc2fc1a5c864bc29ca1517a88abc963e60d6ec
         x-checker-data:
           type: pypi
           name: kiwisolver
@@ -183,8 +183,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/45/d0/0d5216512b59f139053f2d6c941598752ac8ad50eb3737e4accca08b3b50/numexpr-2.8.4.tar.gz
-        sha256: d5432537418d18691b9115d615d6daa17ee8275baef3edf1afbbf8bc69806147
+        url: https://files.pythonhosted.org/packages/93/1d/b9e273d1509790e2add861895c872e797058fa408860f81716b11a09287f/numexpr-2.8.7.tar.gz
+        sha256: 596eeb3bbfebc912f4b6eaaf842b61ba722cebdb8bc42dfefa657d3a74953849
         x-checker-data:
           type: pypi
           name: numexpr
@@ -195,8 +195,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/85/7e/133e943e97a943d2f1d8bae0c5060f8ac50e6691754eb9dbe036b047a9bb/Markdown-3.4.1.tar.gz
-        sha256: 3b809086bb6efad416156e00a0da66fe47618a5d6918dd688f53f40c8e4cfeff
+        url: https://files.pythonhosted.org/packages/87/2a/62841f4fb1fef5fa015ded48d02401cd95643ca03b6760b29437b62a04a4/Markdown-3.4.4.tar.gz
+        sha256: 225c6123522495d4119a90b3a3ba31a1e87a70369e03f14799ea9c0d7183a3d6
         x-checker-data:
           type: pypi
           name: Markdown
@@ -219,8 +219,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz
-        sha256: 33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6
+        url: https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz
+        sha256: f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b
         x-checker-data:
           type: pypi
           name: docutils
@@ -257,8 +257,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/34/45/a7caaacbfc2fa60bee42effc4bcc7d7c6dbe9c349500e04f65a861c15eb9/cycler-0.11.0.tar.gz
-        sha256: 9c87405839a19696e837b3b818fed3f5f69f16f1eec1a1ad77e043dcea9c772f
+        url: https://files.pythonhosted.org/packages/3f/22/13979b9dcef3296cae2e8d2b074be4d904ad36ec766d6fc0bb7cb4cbb258/cycler-0.12.0.tar.gz
+        sha256: 8cc3a7b4861f91b1095157f9916f748549a617046e67eb7619abed9b34d2c94a
         x-checker-data:
           type: pypi
           name: cycler
@@ -336,8 +336,8 @@ modules:
         LDFLAGS: -shared
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/0a/2e/44795c6398e24e45fa0bb61c3e98de1cfea567b1b51efd3751e2f7ff9720/scipy-1.9.3.tar.gz
-        sha256: fbc5c05c85c1a02be77b1ff591087c83bc44579c6d2bd9fb798bb64ea5e1a027
+        url: https://files.pythonhosted.org/packages/39/7b/9f265b7f074195392e893a5cdc66116c2f7a31fd5f3d9cceff661ec6df82/scipy-1.11.3.tar.gz
+        sha256: bba4d955f54edd61899776bad459bf7326e14b9fa1c552181f0479cc60a568cd
         x-checker-data:
           type: pypi
           name: scipy
@@ -348,8 +348,8 @@ modules:
           - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
         sources:
           - type: archive
-            url: https://files.pythonhosted.org/packages/48/a3/0bd844c54ae8141642088b7ae09dd38fec2ec7faa9b7d25bb6a23c1f266f/gast-0.5.3.tar.gz
-            sha256: cfbea25820e653af9c7d1807f659ce0a0a9c64f2439421a7bba4f0983f532dea
+            url: https://files.pythonhosted.org/packages/e4/41/f26f62ebef1a80148e20951a6e9ef4d0ebbe2090124bc143da26e12a934c/gast-0.5.4.tar.gz
+            sha256: 9c270fe5f4b130969b54174de7db4e764b09b4f7f67ccfc32480e29f78348d97
             x-checker-data:
               type: pypi
               name: gast
@@ -361,8 +361,8 @@ modules:
           - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
         sources:
           - type: archive
-            url: https://files.pythonhosted.org/packages/99/e0/ed0e81de05cfa4ecbcbceec6603d175387d8bc7a6332cbfd155d09958ccf/pythran-0.12.0.tar.gz
-            sha256: eff3dd0d3eebe57372f0d14f82985525e9bcdfb5b1d1010e1932cf9207060f9f
+            url: https://files.pythonhosted.org/packages/2c/ab/a647b8cc3ac1aa07cde06875157696e4522958fb8363474bce21c302d4d8/pythran-0.14.0.tar.gz
+            sha256: 42f3473946205964844eff7f750e2541afb2006d53475d708f5ff2d048db89bd
             x-checker-data:
               type: pypi
               name: pythran
